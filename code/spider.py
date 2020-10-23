@@ -13,13 +13,13 @@ def save_in_file(filename,data):
     with open(filename,mode="w") as f:
         f.write(json.dumps(data))
         
-# github access token
-g = Github("3fb8c2b912625949580df590b3deaa15b8bceee7")
+
+g = Github() # empty param here : github access token 
 repo = g.get_repo("microsoft/vscode")
 issues = repo.get_issues(labels = ["feature-request"],state = "closed")
 count = 0
 data = []
-filename = 'data_closed_with_comments.json'
+filename = 'data_with_comments.json'
 for issue in issues:
     count += 1
     try:
